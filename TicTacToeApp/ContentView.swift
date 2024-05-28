@@ -9,15 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
-            Color.blue
-                .ignoresSafeArea()
-            VStack{
-                Text("TIC TAC TOE GAME")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                Text("Start")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .navigationTitle("Start")
+        NavigationStack{
+            ZStack{
+                Color.green
+                    .ignoresSafeArea()
+                
+                VStack{
+                    Text("TIC TAC TOE GAME")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    
+                    NavigationLink {
+                        GamingScreen()
+                    } label: {
+                        Button("Start", action: {})
+                    }
+
+                }
             }
         }
     }

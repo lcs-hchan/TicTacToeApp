@@ -12,26 +12,29 @@ struct GamingScreen: View {
        
         Grid{
             GridRow{
-                ForEach(1..<4){ index in
+                ForEach(0..<3){ index in
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 125)
+                            .frame(height: 125)
+                    }
+                }
+            }
+            GridRow{
+                ForEach(0..<3){ index in
                     Rectangle()
                         .frame(width: 125)
                         .frame(height: 125)
                 }
             }
             GridRow{
-                ForEach(1..<4){ index in
+                ForEach(0..<3){ index in
                     Rectangle()
                         .frame(width: 125)
                         .frame(height: 125)
                 }
             }
-            GridRow{
-                ForEach(1..<4){ index in
-                    Rectangle()
-                        .frame(width: 125)
-                        .frame(height: 125)
-                }
-            }
+            
         }
           
     }
