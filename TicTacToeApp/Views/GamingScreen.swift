@@ -56,10 +56,21 @@ struct GamingScreen: View {
                         Rectangle()
                             .frame(width: 125)
                             .frame(height: 125)
-                        Button("X", action: {})
-                            .foregroundStyle(.blue)
-                            .font(.system(size: 100))
-                            .ignoresSafeArea()
+                        if board.squares[index] == SquareState.empty {
+                            Button(" ", action: {
+                                board.squares[index] = SquareState.ex
+                            })
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+
+                        } else if board.squares[index] == SquareState.ex{
+                            Button("X", action: {})
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+                        }
+                        
                     }
 
                 }
@@ -70,10 +81,20 @@ struct GamingScreen: View {
                         Rectangle()
                             .frame(width: 125)
                             .frame(height: 125)
-                        Button("X", action: {})
-                            .foregroundStyle(.blue)
-                            .font(.system(size: 100))
-                            .ignoresSafeArea()
+                        if board.squares[index] == SquareState.empty {
+                            Button(" ", action: {
+                                board.squares[index] = SquareState.ex
+                            })
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+
+                        } else if board.squares[index] == SquareState.ex{
+                            Button("X", action: {})
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+                        }
                     }
                 }
             }
