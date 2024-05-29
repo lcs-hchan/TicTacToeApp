@@ -21,7 +21,8 @@ struct ContentView: View {
                     NavigationLink {
                         GamingScreen()
                     } label: {
-                        Button("Start", action: {})
+                        Text("Start")
+                            .foregroundStyle(.blue)
                     }
 
                 }
