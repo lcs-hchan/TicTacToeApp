@@ -17,21 +17,38 @@ struct GamingScreen: View {
                         Rectangle()
                             .frame(width: 125)
                             .frame(height: 125)
+                        Button("X", action: {})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
                     }
                 }
             }
             GridRow{
-                ForEach(0..<3){ index in
-                    Rectangle()
-                        .frame(width: 125)
-                        .frame(height: 125)
+                ForEach(3..<6){ index in
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 125)
+                            .frame(height: 125)
+                        Button("X", action: {})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                    }
+
                 }
             }
             GridRow{
-                ForEach(0..<3){ index in
-                    Rectangle()
-                        .frame(width: 125)
-                        .frame(height: 125)
+                ForEach(6..<9){ index in
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 125)
+                            .frame(height: 125)
+                        Button("X", action: {})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                    }
                 }
             }
             
