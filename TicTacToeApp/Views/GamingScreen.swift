@@ -22,105 +22,111 @@ struct GamingScreen: View {
     var body: some View {
         
         let _ = dump(board)
-        
-        Grid{
-            GridRow{
-                ForEach(0..<3){ index in
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 125)
-                            .frame(height: 125)
+        VStack{
+            Text("X Turn")
+                .font(.system(size: 50))
+                
+            Grid{
+        GridRow{
+            ForEach(0..<3){ index in
+                ZStack{
+                    Rectangle()
+                        .frame(width: 125)
+                        .frame(height: 125)
+                    
+                    if board.squares[index] == SquareState.empty {
+                        Button(" ", action: {
+                            board.squares[index] = SquareState.ex
+                        })
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 100))
+                        .ignoresSafeArea()
                         
-                        if board.squares[index] == SquareState.empty {
-                            Button(" ", action: {
-                                board.squares[index] = SquareState.ex
-                            })
+                    } else if board.squares[index] == SquareState.ex {
+                        Button("X", action: {board.squares[index] = SquareState.oh})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
-                            
-                        } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {board.squares[index] = SquareState.oh})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                        }
-                        else if board.squares[index] == SquareState.oh{
-                            Button("O", action: {board.squares[index] = SquareState.empty})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                        }
-                        
-                        
-                    }
-                }
-            }
-            GridRow{
-                ForEach(3..<6){ index in
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 125)
-                            .frame(height: 125)
-                        if board.squares[index] == SquareState.empty {
-                            Button(" ", action: {
-                                board.squares[index] = SquareState.ex
-                            })
+                    } else if board.squares[index] == SquareState.oh {
+                        Button("O", action: {board.squares[index] = SquareState.empty})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
-                            
-                        } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {board.squares[index] = SquareState.oh})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                        }
-                        else if board.squares[index] == SquareState.oh{
-                            Button("O", action: {board.squares[index] = SquareState.empty})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                        }
-                        
                     }
+                    
                     
                 }
             }
-            GridRow{
-                ForEach(6..<9){ index in
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 125)
-                            .frame(height: 125)
-                        if board.squares[index] == SquareState.empty {
-                            Button(" ", action: {
-                                board.squares[index] = SquareState.ex
-                            })
+        }
+        GridRow{
+            ForEach(3..<6){ index in
+                ZStack{
+                    Rectangle()
+                        .frame(width: 125)
+                        .frame(height: 125)
+                    if board.squares[index] == SquareState.empty {
+                        Button(" ", action: {
+                            board.squares[index] = SquareState.ex
+                        })
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 100))
+                        .ignoresSafeArea()
+                        
+                    } else if board.squares[index] == SquareState.ex{
+                        Button("X", action: {board.squares[index] = SquareState.oh})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
-                            
-                        } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {board.squares[index] = SquareState.oh})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                            
-                        }
-                        else if board.squares[index] == SquareState.oh{
-                            Button("O", action: {board.squares[index] = SquareState.empty})
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                            
-                        }
+                    }
+                    else if board.squares[index] == SquareState.oh{
+                        Button("O", action: {board.squares[index] = SquareState.empty})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                    }
+                    
+                }
+                
+            }
+        }
+        GridRow{
+            ForEach(6..<9){ index in
+                ZStack{
+                    Rectangle()
+                        .frame(width: 125)
+                        .frame(height: 125)
+                    if board.squares[index] == SquareState.empty {
+                        Button(" ", action: {
+                            board.squares[index] = SquareState.ex
+                        })
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 100))
+                        .ignoresSafeArea()
                         
+                    } else if board.squares[index] == SquareState.ex{
+                        Button("X", action: {board.squares[index] = SquareState.oh})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
                         
                     }
+                    else if board.squares[index] == SquareState.oh{
+                        Button("O", action: {board.squares[index] = SquareState.empty})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                        
+                    }
+                    
+                    
                 }
             }
-            
+        }
+        
+    }
+            Button(action: {}, label: {
+                Text("Restart Game")
+            })
         }
         
     }
@@ -129,6 +135,8 @@ struct GamingScreen: View {
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[3,5,7],
     ]
+    
+   
 }
    
   
