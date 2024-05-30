@@ -22,7 +22,7 @@ struct GamingScreen: View {
     var body: some View {
         
         let _ = dump(board)
-       
+        
         Grid{
             GridRow{
                 ForEach(0..<3){ index in
@@ -35,10 +35,10 @@ struct GamingScreen: View {
                             Button(" ", action: {
                                 board.squares[index] = SquareState.ex
                             })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                            
                         } else if board.squares[index] == SquareState.ex{
                             Button("X", action: {board.squares[index] = SquareState.oh})
                                 .foregroundStyle(.blue)
@@ -52,7 +52,7 @@ struct GamingScreen: View {
                                 .ignoresSafeArea()
                         }
                         
-                       
+                        
                     }
                 }
             }
@@ -66,10 +66,10 @@ struct GamingScreen: View {
                             Button(" ", action: {
                                 board.squares[index] = SquareState.ex
                             })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                            
                         } else if board.squares[index] == SquareState.ex{
                             Button("X", action: {board.squares[index] = SquareState.oh})
                                 .foregroundStyle(.blue)
@@ -84,7 +84,7 @@ struct GamingScreen: View {
                         }
                         
                     }
-
+                    
                 }
             }
             GridRow{
@@ -97,10 +97,10 @@ struct GamingScreen: View {
                             Button(" ", action: {
                                 board.squares[index] = SquareState.ex
                             })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                            
                         } else if board.squares[index] == SquareState.ex{
                             Button("X", action: {board.squares[index] = SquareState.oh})
                                 .foregroundStyle(.blue)
@@ -122,10 +122,16 @@ struct GamingScreen: View {
             }
             
         }
-          
+        
     }
+    let winpatterns = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[3,5,7],
+    ]
 }
-
+   
+  
 
 #Preview {
     GamingScreen()
