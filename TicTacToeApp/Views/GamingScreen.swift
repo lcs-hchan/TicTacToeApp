@@ -40,7 +40,13 @@ struct GamingScreen: View {
                                 .ignoresSafeArea()
 
                         } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {})
+                            Button("X", action: {board.squares[index] = SquareState.oh})
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+                        }
+                        else if board.squares[index] == SquareState.oh{
+                            Button("O", action: {board.squares[index] = SquareState.empty})
                                 .foregroundStyle(.blue)
                                 .font(.system(size: 100))
                                 .ignoresSafeArea()
@@ -65,7 +71,13 @@ struct GamingScreen: View {
                                 .ignoresSafeArea()
 
                         } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {})
+                            Button("X", action: {board.squares[index] = SquareState.oh})
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+                        }
+                        else if board.squares[index] == SquareState.oh{
+                            Button("O", action: {board.squares[index] = SquareState.empty})
                                 .foregroundStyle(.blue)
                                 .font(.system(size: 100))
                                 .ignoresSafeArea()
@@ -90,11 +102,21 @@ struct GamingScreen: View {
                                 .ignoresSafeArea()
 
                         } else if board.squares[index] == SquareState.ex{
-                            Button("X", action: {})
+                            Button("X", action: {board.squares[index] = SquareState.oh})
                                 .foregroundStyle(.blue)
                                 .font(.system(size: 100))
                                 .ignoresSafeArea()
+                            
                         }
+                        else if board.squares[index] == SquareState.oh{
+                            Button("O", action: {board.squares[index] = SquareState.empty})
+                                .foregroundStyle(.blue)
+                                .font(.system(size: 100))
+                                .ignoresSafeArea()
+                            
+                        }
+                        
+                        
                     }
                 }
             }
