@@ -43,9 +43,7 @@ struct GamingScreen: View {
                     if board.squares[index] == SquareState.empty {
                         Button(" ", action: {
                             if isItExTurn == true {
-                                // Assign "oh" to the squre
                                 board.squares[index] = SquareState.ex
-
                             } else {
                                 // Assign "oh" to the squre
                                 board.squares[index] = SquareState.oh
