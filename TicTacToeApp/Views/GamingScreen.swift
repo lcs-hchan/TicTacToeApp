@@ -25,8 +25,13 @@ struct GamingScreen: View {
         
         let _ = dump(board)
         VStack{
-            Text("X Turn")
-                .font(.system(size: 50))
+            if isItExTurn == true{
+                Text("X Turn")
+                    .font(.system(size: 30))
+            }else{
+                Text("O Turn")
+                    .font(.system(size: 30))
+            }
                 
             Grid{
         GridRow{
@@ -163,6 +168,9 @@ struct GamingScreen: View {
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[3,5,7],
     ]
+    func restart(){
+       
+    }
     
    
 }
