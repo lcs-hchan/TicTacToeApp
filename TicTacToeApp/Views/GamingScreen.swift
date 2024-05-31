@@ -35,7 +35,35 @@ struct GamingScreen: View {
                     Rectangle()
                         .frame(width: 125)
                         .frame(height: 125)
-                    
+                    if board.squares[index] == SquareState.empty {
+                        Button(" ", action: {
+                            if isItExTurn == true {
+                                // Assign "oh" to the squre
+                                board.squares[index] = SquareState.ex
+
+                            } else {
+                                // Assign "oh" to the squre
+                                board.squares[index] = SquareState.oh
+                            }
+                            
+                            isItExTurn.toggle()
+                        })
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 100))
+                        .ignoresSafeArea()
+                        
+                    } else if board.squares[index] == SquareState.ex{
+                        Button("X", action: {})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                    }
+                    else if board.squares[index] == SquareState.oh{
+                        Button("O", action: {})
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 100))
+                            .ignoresSafeArea()
+                    }
                     
                 }
             }
@@ -65,13 +93,13 @@ struct GamingScreen: View {
                         .ignoresSafeArea()
                         
                     } else if board.squares[index] == SquareState.ex{
-                        Button("X", action: {board.squares[index] = SquareState.oh})
+                        Button("X", action: {})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
                     }
                     else if board.squares[index] == SquareState.oh{
-                        Button("O", action: {board.squares[index] = SquareState.empty})
+                        Button("O", action: {})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
@@ -89,26 +117,34 @@ struct GamingScreen: View {
                         .frame(height: 125)
                     if board.squares[index] == SquareState.empty {
                         Button(" ", action: {
-                            board.squares[index] = SquareState.ex
+                            if isItExTurn == true {
+                                // Assign "oh" to the squre
+                                board.squares[index] = SquareState.ex
+
+                            } else {
+                                // Assign "oh" to the squre
+                                board.squares[index] = SquareState.oh
+                            }
+                            
+                            isItExTurn.toggle()
                         })
                         .foregroundStyle(.blue)
                         .font(.system(size: 100))
                         .ignoresSafeArea()
                         
                     } else if board.squares[index] == SquareState.ex{
-                        Button("X", action: {board.squares[index] = SquareState.oh})
+                        Button("X", action: {})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
-                        
                     }
                     else if board.squares[index] == SquareState.oh{
-                        Button("O", action: {board.squares[index] = SquareState.empty})
+                        Button("O", action: {})
                             .foregroundStyle(.blue)
                             .font(.system(size: 100))
                             .ignoresSafeArea()
-                        
                     }
+                    
                     
                     
                 }
