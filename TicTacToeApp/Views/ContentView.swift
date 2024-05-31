@@ -15,6 +15,8 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack{
+                   
+                    
                     Text("TIC TAC TOE GAME")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
@@ -23,6 +25,7 @@ struct ContentView: View {
                     } label: {
                         Text("Start")
                             .foregroundStyle(.blue)
+                            .font(.system(size: 50))
                         
                     }
 
