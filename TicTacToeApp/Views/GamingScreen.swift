@@ -18,7 +18,7 @@ struct GamingScreen: View {
     // MARK: Stored propeties
     @State var board = GameBoard()
     
-    @State var isItExTurn: Bool = true
+    @State var isItExTurn = Bool.random()
     
     // MARK: Computed properties
     var body: some View {
@@ -157,7 +157,7 @@ struct GamingScreen: View {
         }
         
     }
-            Button(action: {}, label: {
+            Button(action: {restart()}, label: {
                 Text("Restart Game")
             })
         }
@@ -168,8 +168,13 @@ struct GamingScreen: View {
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[3,5,7],
     ]
-    func restart(){
-       
+   
+   
+func restart(){
+    board = GameBoard()
+    isItExTurn = Bool.random()
+            
+        
     }
     
    
