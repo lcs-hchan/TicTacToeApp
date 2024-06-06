@@ -19,7 +19,7 @@ struct GamingScreen: View {
     let winpatterns = [
         [0,1,2],[3,4,5],[6,7,8],
         [0,3,6],[1,4,7],[2,5,8],
-        [0,4,8],[3,5,7],
+        [0,4,8],[2,4,6],
     ]
     
 
@@ -28,9 +28,16 @@ struct GamingScreen: View {
     
     @State var isItExTurn = Bool.random()
     
+    @State var winner: SquareState? = nil
+    
     // MARK: Computed properties
     var body: some View {
         VStack{
+            if winner == .ex {
+                Text("X is winner")
+            }else if winner == .oh{
+                Text("O is winner")
+            }
             if isItExTurn == true{
                 Text("X Turn")
                     .font(.system(size: 30))
@@ -56,6 +63,7 @@ struct GamingScreen: View {
                                     }
                                     
                                     isItExTurn.toggle()
+
                                 })
                                 .foregroundStyle(.blue)
                                 .font(.system(size: 100))
@@ -201,7 +209,7 @@ struct GamingScreen: View {
                 board.squares[3] == SquareState.ex &&
                 board.squares[5] == SquareState.ex &&
                 board.squares[7] == SquareState.ex  {
-            print("Ex WIns")
+            winner = .ex
         } else if
             board.squares[0] == SquareState.oh &&
                 board.squares[1] == SquareState.oh &&
@@ -234,7 +242,8 @@ struct GamingScreen: View {
                     board.squares[3] == SquareState.oh &&
                     board.squares[5] == SquareState.oh &&
                     board.squares[7] == SquareState.oh{
-            print("O wins")
+            winner = .oh
+            
         }
        
                 
