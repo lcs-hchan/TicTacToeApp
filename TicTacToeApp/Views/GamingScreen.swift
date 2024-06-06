@@ -61,7 +61,7 @@ struct GamingScreen: View {
                                         // Assign "oh" to the squre
                                         board.squares[index] = SquareState.oh
                                     }
-                                    
+                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                     isItExTurn.toggle()
 
                                 })
@@ -102,7 +102,7 @@ struct GamingScreen: View {
                                         // Assign "oh" to the squre
                                         board.squares[index] = SquareState.oh
                                     }
-                                    
+                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                     isItExTurn.toggle()
                                 })
                                 .foregroundStyle(.blue)
@@ -142,7 +142,7 @@ struct GamingScreen: View {
                                         // Assign "oh" to the squre
                                         board.squares[index] = SquareState.oh
                                     }
-                                    
+                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                     isItExTurn.toggle()
                                 })
                                 .foregroundStyle(.blue)
@@ -176,6 +176,7 @@ struct GamingScreen: View {
     func restart(){
         board = GameBoard()
         isItExTurn = Bool.random()
+        winner = nil
     }
     func checkWin(forPlayer player: SquareState){
         if  board.squares[0] == SquareState.ex &&
