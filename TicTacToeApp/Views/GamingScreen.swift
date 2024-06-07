@@ -172,6 +172,7 @@ struct GamingScreen: View {
                 }
                 Button(action: {restart()}, label: {
                     Text("Restart Game")
+                        .font(.system(size: 25))
                 })
             }
         }
@@ -255,6 +256,7 @@ struct GamingScreen: View {
         
         
     }
+    
     
     
     
