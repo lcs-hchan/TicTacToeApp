@@ -11,13 +11,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                  
-                
                 VStack{
-                   
-                    
                     Text("TIC TAC TOE GAME")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
