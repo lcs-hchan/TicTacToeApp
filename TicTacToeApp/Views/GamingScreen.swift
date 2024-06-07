@@ -32,143 +32,148 @@ struct GamingScreen: View {
     
     // MARK: Computed properties
     var body: some View {
-        VStack{
-            if winner == .ex {
-                Text("X is winner")
-            }else if winner == .oh{
-                Text("O is winner")
-            }
-            if isItExTurn == true{
-                Text("X Turn")
-                    .font(.system(size: 30))
-            }else{
-                Text("O Turn")
-                    .font(.system(size: 30))
-            }
-            
-            Grid{
-                GridRow{
-                    ForEach(0..<3){ index in
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 125)
-                                .frame(height: 125)
-                            if board.squares[index] == SquareState.empty {
-                                Button(" ", action: {
-                                    if isItExTurn == true {
-                                        board.squares[index] = SquareState.ex
-                                    } else {
-                                        // Assign "oh" to the squre
-                                        board.squares[index] = SquareState.oh
-                                    }
-                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                    isItExTurn.toggle()
-
-                                })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                                
-                            } else if board.squares[index] == SquareState.ex{
-                                Button("X", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                            else if board.squares[index] == SquareState.oh{
-                                Button("O", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                            
-                        }
-                    }
+        ZStack{
+            Color(.red)
+                .ignoresSafeArea()
+            VStack{
+                if winner == .ex {
+                    Text("X is winner")
+                }else if winner == .oh{
+                    Text("O is winner")
                 }
-                GridRow{
-                    ForEach(3..<6){ index in
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 125)
-                                .frame(height: 125)
-                            
-                            if board.squares[index] == SquareState.empty {
-                                Button(" ", action: {
-                                    if isItExTurn == true {
-                                        // Assign "oh" to the squre
-                                        board.squares[index] = SquareState.ex
-                                        
-                                    } else {
-                                        // Assign "oh" to the squre
-                                        board.squares[index] = SquareState.oh
-                                    }
-                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                    isItExTurn.toggle()
-                                })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                                
-                            } else if board.squares[index] == SquareState.ex{
-                                Button("X", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                            else if board.squares[index] == SquareState.oh{
-                                Button("O", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                            
-                        }
-                        
-                    }
-                }
-                GridRow{
-                    ForEach(6..<9){ index in
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 125)
-                                .frame(height: 125)
-                            if board.squares[index] == SquareState.empty {
-                                Button(" ", action: {
-                                    if isItExTurn == true {
-                                        // Assign "oh" to the squre
-                                        board.squares[index] = SquareState.ex
-                                        
-                                    } else {
-                                        // Assign "oh" to the squre
-                                        board.squares[index] = SquareState.oh
-                                    }
-                                    checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                    isItExTurn.toggle()
-                                })
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 100))
-                                .ignoresSafeArea()
-                                
-                            } else if board.squares[index] == SquareState.ex{
-                                Button("X", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                            else if board.squares[index] == SquareState.oh{
-                                Button("O", action: {})
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                            }
-                        }
-                    }
+                if isItExTurn == true{
+                    Text("X Turn")
+                        .font(.system(size: 30))
+                }else{
+                    Text("O Turn")
+                        .font(.system(size: 30))
                 }
                 
+                Grid{
+                    GridRow{
+                        ForEach(0..<3){ index in
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 125)
+                                    .frame(height: 125)
+                                if board.squares[index] == SquareState.empty {
+                                    Button(" ", action: {
+                                        if isItExTurn == true {
+                                            board.squares[index] = SquareState.ex
+                                        } else {
+                                            // Assign "oh" to the squre
+                                            board.squares[index] = SquareState.oh
+                                        }
+                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                        isItExTurn.toggle()
+                                        
+                                        
+                                    })
+                                    .foregroundStyle(.blue)
+                                    .font(.system(size: 100))
+                                    .ignoresSafeArea()
+                                    
+                                } else if board.squares[index] == SquareState.ex{
+                                    Button("X", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                                else if board.squares[index] == SquareState.oh{
+                                    Button("O", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                                
+                            }
+                        }
+                    }
+                    GridRow{
+                        ForEach(3..<6){ index in
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 125)
+                                    .frame(height: 125)
+                                
+                                if board.squares[index] == SquareState.empty {
+                                    Button(" ", action: {
+                                        if isItExTurn == true {
+                                            // Assign "oh" to the squre
+                                            board.squares[index] = SquareState.ex
+                                            
+                                        } else {
+                                            // Assign "oh" to the squre
+                                            board.squares[index] = SquareState.oh
+                                        }
+                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                        isItExTurn.toggle()
+                                    })
+                                    .foregroundStyle(.blue)
+                                    .font(.system(size: 100))
+                                    .ignoresSafeArea()
+                                    
+                                } else if board.squares[index] == SquareState.ex{
+                                    Button("X", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                                else if board.squares[index] == SquareState.oh{
+                                    Button("O", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                    GridRow{
+                        ForEach(6..<9){ index in
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 125)
+                                    .frame(height: 125)
+                                if board.squares[index] == SquareState.empty {
+                                    Button(" ", action: {
+                                        if isItExTurn == true {
+                                            // Assign "oh" to the squre
+                                            board.squares[index] = SquareState.ex
+                                            
+                                        } else {
+                                            // Assign "oh" to the squre
+                                            board.squares[index] = SquareState.oh
+                                        }
+                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                        isItExTurn.toggle()
+                                    })
+                                    .foregroundStyle(.blue)
+                                    .font(.system(size: 100))
+                                    .ignoresSafeArea()
+                                    
+                                } else if board.squares[index] == SquareState.ex{
+                                    Button("X", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                                else if board.squares[index] == SquareState.oh{
+                                    Button("O", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                Button(action: {restart()}, label: {
+                    Text("Restart Game")
+                })
             }
-            Button(action: {restart()}, label: {
-                Text("Restart Game")
-            })
         }
         
     }
@@ -244,10 +249,11 @@ struct GamingScreen: View {
                     board.squares[5] == SquareState.oh &&
                     board.squares[7] == SquareState.oh{
             winner = .oh
-            
-        }
-       
-                
+        } 
+        
+    
+        
+        
     }
     
     
