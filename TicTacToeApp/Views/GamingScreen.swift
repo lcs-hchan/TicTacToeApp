@@ -246,9 +246,9 @@ struct GamingScreen: View {
                 board.squares[4] == SquareState.ex &&
                 board.squares[8] == SquareState.ex ||
                 
-                board.squares[3] == SquareState.ex &&
-                board.squares[5] == SquareState.ex &&
-                board.squares[7] == SquareState.ex  {
+                board.squares[2] == SquareState.ex &&
+                board.squares[4] == SquareState.ex &&
+                board.squares[6] == SquareState.ex  {
             winner = .ex
             xScore += 1
             
@@ -281,9 +281,9 @@ struct GamingScreen: View {
                     board.squares[4] == SquareState.oh &&
                     board.squares[8] == SquareState.oh ||
                     
-                    board.squares[3] == SquareState.oh &&
-                    board.squares[5] == SquareState.oh &&
-                    board.squares[7] == SquareState.oh{
+                    board.squares[2] == SquareState.oh &&
+                    board.squares[4] == SquareState.oh &&
+                    board.squares[6] == SquareState.oh{
             winner = .oh
             oScore += 1
         }
