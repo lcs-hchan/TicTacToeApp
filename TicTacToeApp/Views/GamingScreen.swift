@@ -33,6 +33,11 @@ struct GamingScreen: View {
     @State var oScore = 0
     
     // MARK: Computed properties
+    var gameIsOver: Bool {
+        return winner == .ex || winner == .oh
+    }
+    
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
@@ -60,10 +65,12 @@ struct GamingScreen: View {
                             Text("X Turn")
                                 .font(.system(size: 30))
                                 .foregroundStyle(.blue)
+
                         }else{
                             Text("O Turn")
                                 .font(.system(size: 30))
                                 .foregroundStyle(.blue)
+            
                         }
                     }
                     Spacer()
@@ -87,14 +94,18 @@ struct GamingScreen: View {
                                     .frame(height: 125)
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
-                                        if isItExTurn == true {
-                                            board.squares[index] = SquareState.ex
-                                        } else {
-                                            // Assign "oh" to the squre
-                                            board.squares[index] = SquareState.oh
+                                        if gameIsOver == false {
+                                            if isItExTurn == true {
+                                                board.squares[index] = SquareState.ex
+                                            } else {
+                                                // Assign "oh" to the squre
+                                                board.squares[index] = SquareState.oh
+                                            }
+                                            checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                            isItExTurn.toggle()
+
                                         }
-                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                        isItExTurn.toggle()
+                                        
                                         
                                         
                                     })
@@ -128,6 +139,7 @@ struct GamingScreen: View {
                                 
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
+                                        if gameIsOver == false{
                                         if isItExTurn == true {
                                             // Assign "oh" to the squre
                                             board.squares[index] = SquareState.ex
@@ -138,6 +150,7 @@ struct GamingScreen: View {
                                         }
                                         checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                         isItExTurn.toggle()
+                                    }
                                     })
                                     .foregroundStyle(.blue)
                                     .font(.system(size: 100))
@@ -168,6 +181,7 @@ struct GamingScreen: View {
                                     .frame(height: 125)
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
+                                        if gameIsOver == false{
                                         if isItExTurn == true {
                                             // Assign "oh" to the squre
                                             board.squares[index] = SquareState.ex
@@ -178,6 +192,7 @@ struct GamingScreen: View {
                                         }
                                         checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                         isItExTurn.toggle()
+                                    }
                                     })
                                     .foregroundStyle(.blue)
                                     .font(.system(size: 100))
