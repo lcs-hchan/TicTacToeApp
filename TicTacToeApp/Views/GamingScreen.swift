@@ -21,9 +21,7 @@ struct GamingScreen: View {
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[2,4,6],
     ]
-    
 
-    
     @State var board = GameBoard()
     
     @State var isItExTurn = Bool.random()
@@ -36,17 +34,41 @@ struct GamingScreen: View {
             Color(.red)
                 .ignoresSafeArea()
             VStack{
-                if winner == .ex {
-                    Text("X is winner")
-                }else if winner == .oh{
-                    Text("O is winner")
-                }
-                if isItExTurn == true{
-                    Text("X Turn")
-                        .font(.system(size: 30))
-                }else{
-                    Text("O Turn")
-                        .font(.system(size: 30))
+                HStack{
+                    VStack{
+                        Text("X Score")
+                            .font(.system(size: 30))
+                            .padding()
+                        Text("12")
+                            .font(.system(size: 30))
+     
+                    }
+
+                    
+                    Spacer()
+                    if winner == .ex {
+                        Text("X is winner")
+                    }else if winner == .oh{
+                        Text("O is winner")
+                    }
+                    if isItExTurn == true{
+                        Text("X Turn")
+                            .font(.system(size: 30))
+                    }else{
+                        Text("O Turn")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.yellow)
+                    }
+                    Spacer()
+                    VStack{
+                        Text("O Score")
+                            .font(.system(size: 30))
+                            .padding()
+                        Text("11")
+                            .font(.system(size: 30))
+                    }
+                    
+
                 }
                 
                 Grid{
@@ -85,6 +107,7 @@ struct GamingScreen: View {
                                         .font(.system(size: 100))
                                         .ignoresSafeArea()
                                 }
+                                    
                                 
                             }
                         }
@@ -165,6 +188,7 @@ struct GamingScreen: View {
                                         .font(.system(size: 100))
                                         .ignoresSafeArea()
                                 }
+                                   
                             }
                         }
                     }
@@ -250,8 +274,7 @@ struct GamingScreen: View {
                     board.squares[5] == SquareState.oh &&
                     board.squares[7] == SquareState.oh{
             winner = .oh
-        } 
-        
+        }
     
         
         
