@@ -31,7 +31,7 @@ struct GamingScreen: View {
     // MARK: Computed properties
     var body: some View {
         ZStack{
-            Color(.red)
+            LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack{
                 HStack{
@@ -54,10 +54,11 @@ struct GamingScreen: View {
                     if isItExTurn == true{
                         Text("X Turn")
                             .font(.system(size: 30))
+                            .foregroundStyle(.blue)
                     }else{
                         Text("O Turn")
                             .font(.system(size: 30))
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(.blue)
                     }
                     Spacer()
                     VStack{
@@ -197,6 +198,7 @@ struct GamingScreen: View {
                 Button(action: {restart()}, label: {
                     Text("Restart Game")
                         .font(.system(size: 25))
+                        .foregroundStyle(.white)
                 })
             }
         }
@@ -208,6 +210,7 @@ struct GamingScreen: View {
         isItExTurn = Bool.random()
         winner = nil
     }
+        
     func checkWin(forPlayer player: SquareState){
         if  board.squares[0] == SquareState.ex &&
             board.squares[1] == SquareState.ex &&
