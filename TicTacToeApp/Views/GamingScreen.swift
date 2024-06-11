@@ -28,6 +28,10 @@ struct GamingScreen: View {
     
     @State var winner: SquareState? = nil
     
+    @State var xScore = 0
+    
+    @State var oScore = 0
+    
     // MARK: Computed properties
     var body: some View {
         ZStack{
@@ -37,36 +41,38 @@ struct GamingScreen: View {
                 HStack{
                     VStack{
                         Text("X Score")
-                            .font(.system(size: 30))
+                            .font(.system(size: 20))
                             .padding()
-                        Text("12")
-                            .font(.system(size: 30))
+                        Text("\(xScore)")
+                            .font(.system(size: 20))
      
                     }
 
                     
                     Spacer()
-                    if winner == .ex {
-                        Text("X is winner")
-                    }else if winner == .oh{
-                        Text("O is winner")
-                    }
-                    if isItExTurn == true{
-                        Text("X Turn")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.blue)
-                    }else{
-                        Text("O Turn")
-                            .font(.system(size: 30))
-                            .foregroundStyle(.blue)
+                    VStack{
+                        if winner == .ex {
+                            Text("X is winner")
+                        }else if winner == .oh{
+                            Text("O is winner")
+                        }
+                        if isItExTurn == true{
+                            Text("X Turn")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.blue)
+                        }else{
+                            Text("O Turn")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.blue)
+                        }
                     }
                     Spacer()
                     VStack{
                         Text("O Score")
-                            .font(.system(size: 30))
+                            .font(.system(size: 20))
                             .padding()
-                        Text("11")
-                            .font(.system(size: 30))
+                        Text("\(oScore)")
+                            .font(.system(size: 20))
                     }
                     
 
@@ -244,6 +250,8 @@ struct GamingScreen: View {
                 board.squares[5] == SquareState.ex &&
                 board.squares[7] == SquareState.ex  {
             winner = .ex
+            xScore += 1
+            
         } else if
             board.squares[0] == SquareState.oh &&
                 board.squares[1] == SquareState.oh &&
@@ -277,6 +285,7 @@ struct GamingScreen: View {
                     board.squares[5] == SquareState.oh &&
                     board.squares[7] == SquareState.oh{
             winner = .oh
+            oScore += 1
         }
     
         
