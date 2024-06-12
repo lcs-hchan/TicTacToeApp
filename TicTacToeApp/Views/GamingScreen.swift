@@ -78,18 +78,13 @@ struct GamingScreen: View {
                                     .font(.system(size: 100))
                                     .ignoresSafeArea()
                                     
-                                } else if board.squares[index] == SquareState.ex{
-                                    Button("X", action: {})
+                                } else {
+                                    Button(board.squares[index] == .ex ? "X": "O", action: {})
                                         .foregroundStyle(.blue)
                                         .font(.system(size: 100))
                                         .ignoresSafeArea()
                                 }
-                                else if board.squares[index] == SquareState.oh{
-                                    Button("O", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                }
+                               
                                     
                                 
                             }
@@ -118,14 +113,7 @@ struct GamingScreen: View {
                                     .font(.system(size: 100))
                                     .ignoresSafeArea()
                                     
-                                } else if board.squares[index] == SquareState.ex{
-                                    Button("X", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                }
-                                else if board.squares[index] == SquareState.oh{
-                                    Button("O", action: {})
+                                } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
                                         .foregroundStyle(.blue)
                                         .font(.system(size: 100))
                                         .ignoresSafeArea()
@@ -158,14 +146,7 @@ struct GamingScreen: View {
                                     .font(.system(size: 100))
                                     .ignoresSafeArea()
                                     
-                                } else if board.squares[index] == SquareState.ex{
-                                    Button("X", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                }
-                                else if board.squares[index] == SquareState.oh{
-                                    Button("O", action: {})
+                                } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
                                         .foregroundStyle(.blue)
                                         .font(.system(size: 100))
                                         .ignoresSafeArea()
@@ -228,7 +209,7 @@ struct GamingScreen: View {
             xScore += 1
             
         } else if
-            board.squares[0] == SquareState.oh &&
+                board.squares[0] == SquareState.oh &&
                 board.squares[1] == SquareState.oh &&
                 board.squares[2] == SquareState.oh ||
                 
@@ -262,13 +243,9 @@ struct GamingScreen: View {
             winner = .oh
             oScore += 1
         }
-        
-        
+                    
+            
     }
-    
-    
-    
-    
    
 }
 
