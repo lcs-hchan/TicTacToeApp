@@ -74,10 +74,6 @@ struct GamingScreen: View {
 
                                         }
                                     })
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                                    
                                 } else {
                                     Button(board.squares[index] == .ex ? "X": "O", action: {})
                                         .foregroundStyle(.blue)
@@ -109,9 +105,6 @@ struct GamingScreen: View {
                                         isItExTurn.toggle()
                                     }
                                     })
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
                                     
                                 } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
                                         .foregroundStyle(.blue)
@@ -147,9 +140,7 @@ struct GamingScreen: View {
                                     .ignoresSafeArea()
                                     
                                 } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
+                                      
                                 }
                                    
                             }
