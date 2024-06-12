@@ -56,17 +56,9 @@ struct GamingScreen: View {
                         }else if winner == .oh{
                             Text("O is winner")
                         }
-                        if isItExTurn == true{
-                            Text("X Turn")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.blue)
-
-                        }else{
-                            Text("O Turn")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.blue)
-            
-                        }
+                        Text(isItExTurn ? "X Turn":"O Turn")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.blue)
                     }
                     Spacer()
                     VStack{
@@ -84,9 +76,7 @@ struct GamingScreen: View {
                     GridRow{
                         ForEach(0..<3){ index in
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 125)
-                                    .frame(height: 125)
+                                RectangleIView()
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
                                         if gameIsOver == false {
@@ -100,9 +90,6 @@ struct GamingScreen: View {
                                             isItExTurn.toggle()
 
                                         }
-                                        
-                                        
-                                        
                                     })
                                     .foregroundStyle(.blue)
                                     .font(.system(size: 100))
@@ -128,10 +115,7 @@ struct GamingScreen: View {
                     GridRow{
                         ForEach(3..<6){ index in
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 125)
-                                    .frame(height: 125)
-                                
+                                RectangleIView()
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
                                         if gameIsOver == false{
@@ -171,9 +155,7 @@ struct GamingScreen: View {
                     GridRow{
                         ForEach(6..<9){ index in
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 125)
-                                    .frame(height: 125)
+                                RectangleIView()
                                 if board.squares[index] == SquareState.empty {
                                     Button(" ", action: {
                                         if gameIsOver == false{
@@ -297,7 +279,6 @@ struct GamingScreen: View {
             winner = .oh
             oScore += 1
         }
-    
         
         
     }
