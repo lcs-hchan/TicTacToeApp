@@ -39,16 +39,7 @@ struct GamingScreen: View {
                 .ignoresSafeArea()
             VStack{
                 HStack{
-                    VStack{
-                        Text("X Score")
-                            .font(.system(size: 20))
-                            .padding()
-                        Text("\(xScore)")
-                            .font(.system(size: 20))
-     
-                    }
-
-                    
+                       ScoreView(player: "X Score", score: xScore)
                     Spacer()
                     VStack{
                         if winner == .ex {
@@ -61,15 +52,7 @@ struct GamingScreen: View {
                             .foregroundStyle(.blue)
                     }
                     Spacer()
-                    VStack{
-                        Text("O Score")
-                            .font(.system(size: 20))
-                            .padding()
-                        Text("\(oScore)")
-                            .font(.system(size: 20))
-                    }
-                    
-
+                        ScoreView(player: "O Score", score: oScore)
                 }
                 
                 Grid{

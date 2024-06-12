@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B24D3E92C0772630028F622 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24D3E82C0772630028F622 /* GameBoard.swift */; };
 		8B4512282C19F79500DD6624 /* RectangleIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4512272C19F79500DD6624 /* RectangleIView.swift */; };
+		8B45122A2C19FD0500DD6624 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4512292C19FD0500DD6624 /* ScoreView.swift */; };
 		8BD4612E2C06073000CF8BE3 /* TicTacToeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4612D2C06073000CF8BE3 /* TicTacToeAppApp.swift */; };
 		8BD461302C06073000CF8BE3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4612F2C06073000CF8BE3 /* ContentView.swift */; };
 		8BD461322C06073100CF8BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD461312C06073100CF8BE3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		8B24D3E82C0772630028F622 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		8B4512272C19F79500DD6624 /* RectangleIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleIView.swift; sourceTree = "<group>"; };
+		8B4512292C19FD0500DD6624 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		8BD4612A2C06073000CF8BE3 /* TicTacToeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD4612D2C06073000CF8BE3 /* TicTacToeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeAppApp.swift; sourceTree = "<group>"; };
 		8BD4612F2C06073000CF8BE3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			children = (
 				8BD4612F2C06073000CF8BE3 /* ContentView.swift */,
 				8BD4613B2C0607E500CF8BE3 /* GamingScreen.swift */,
+				8B4512292C19FD0500DD6624 /* ScoreView.swift */,
 				8B4512272C19F79500DD6624 /* RectangleIView.swift */,
 			);
 			path = Views;
@@ -167,6 +170,7 @@
 				8BD4612E2C06073000CF8BE3 /* TicTacToeAppApp.swift in Sources */,
 				8BD4613C2C0607E500CF8BE3 /* GamingScreen.swift in Sources */,
 				8B4512282C19F79500DD6624 /* RectangleIView.swift in Sources */,
+				8B45122A2C19FD0500DD6624 /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

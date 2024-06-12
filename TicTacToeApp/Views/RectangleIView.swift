@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RectangleIView: View {
+   
     var body: some View {
         Rectangle()
             .frame(width:125)
