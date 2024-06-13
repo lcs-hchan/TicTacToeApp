@@ -239,7 +239,21 @@ struct GamingScreen: View {
                     board.squares[6] == SquareState.oh{
             winner = .oh
             oScore += 1
+        } else if board.squares[0] == SquareState.oh &&
+                    board.squares[1] == SquareState.oh &&
+                    board.squares[2] == SquareState.oh &&
+                    board.squares[3] == SquareState.oh &&
+                    board.squares[4] == SquareState.oh &&
+                    board.squares[5] == SquareState.oh &&
+                    board.squares[6] == SquareState.oh &&
+                    board.squares[7] == SquareState.oh &&
+                    board.squares[8] == SquareState.oh
+                    
+        {
+        isDraw = true
         }
+            
+        
     }
    
 }
