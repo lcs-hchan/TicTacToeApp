@@ -27,9 +27,11 @@ struct GamingScreen: View {
     
     @State var oScore = 0
     
+    @State var isDraw = false
+    
     // MARK: Computed properties
     var gameIsOver: Bool {
-        return winner == .ex || winner == .oh
+        return winner == .ex || winner == .oh || isDraw
     }
     
     
@@ -46,9 +48,11 @@ struct GamingScreen: View {
                             Text("X is winner")
                         }else if winner == .oh{
                             Text("O is winner")
+                        }else if isDraw{
+                            Text("Draw")
                         }
                         Text(isItExTurn ? "X Turn":"O Turn")
-                            .font(.system(size: 30))
+                            .font(.system(size: 50))
                             .foregroundStyle(.blue)
                     }
                     Spacer()
@@ -64,9 +68,10 @@ struct GamingScreen: View {
                                     Button(" ", action: {
                                         if gameIsOver == false {
                                             if isItExTurn == true {
+                                                // Assign "ex" to the square
                                                 board.squares[index] = SquareState.ex
                                             } else {
-                                                // Assign "oh" to the squre
+                                                // Assign "oh" to the square
                                                 board.squares[index] = SquareState.oh
                                             }
                                             checkWin(forPlayer: isItExTurn ? .ex : .oh)
@@ -94,11 +99,11 @@ struct GamingScreen: View {
                                     Button(" ", action: {
                                         if gameIsOver == false{
                                         if isItExTurn == true {
-                                            // Assign "oh" to the squre
+                                            // Assign "ex" to the square
                                             board.squares[index] = SquareState.ex
                                             
                                         } else {
-                                            // Assign "oh" to the squre
+                                            // Assign "oh" to the square
                                             board.squares[index] = SquareState.oh
                                         }
                                         checkWin(forPlayer: isItExTurn ? .ex : .oh)
@@ -124,22 +129,22 @@ struct GamingScreen: View {
                                     Button(" ", action: {
                                         if gameIsOver == false{
                                         if isItExTurn == true {
-                                            // Assign "oh" to the squre
+                                            // Assign "ex" to the square
                                             board.squares[index] = SquareState.ex
                                             
                                         } else {
-                                            // Assign "oh" to the squre
+                                            // Assign "oh" to the square
                                             board.squares[index] = SquareState.oh
                                         }
                                         checkWin(forPlayer: isItExTurn ? .ex : .oh)
                                         isItExTurn.toggle()
                                     }
                                     })
-                                    .foregroundStyle(.blue)
-                                    .font(.system(size: 100))
-                                    .ignoresSafeArea()
-                                    
+                                
                                 } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
+                                        .foregroundStyle(.blue)
+                                        .font(.system(size: 100))
+                                        .ignoresSafeArea()
                                       
                                 }
                                    
@@ -162,6 +167,7 @@ struct GamingScreen: View {
         board = GameBoard()
         isItExTurn = Bool.random()
         winner = nil
+        isDraw = false
     }
         
     func checkWin(forPlayer player: SquareState){
@@ -200,9 +206,9 @@ struct GamingScreen: View {
             xScore += 1
             
         } else if
-                board.squares[0] == SquareState.oh &&
-                board.squares[1] == SquareState.oh &&
-                board.squares[2] == SquareState.oh ||
+                    board.squares[0] == SquareState.oh &&
+                    board.squares[1] == SquareState.oh &&
+                    board.squares[2] == SquareState.oh ||
                 
                     board.squares[3] == SquareState.oh &&
                     board.squares[4] == SquareState.oh &&
@@ -234,8 +240,6 @@ struct GamingScreen: View {
             winner = .oh
             oScore += 1
         }
-                    
-            
     }
    
 }
