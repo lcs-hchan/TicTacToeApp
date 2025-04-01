@@ -39,127 +39,136 @@ struct GamingScreen: View {
     
     
     var body: some View {
-        ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            VStack{
-                HStack{
-                       ScoreView(player: "X Score", score: xScore)
-                    Spacer()
-                    VStack{
-                        if winner == .ex {
-                            Text("X is winner")
-                        }else if winner == .oh{
-                            Text("O is winner")
-                        }else if isDraw{
-                            Text("Draw")
+        NavigationView{
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [Color.red,Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                VStack{
+                    HStack{
+                        ScoreView(player: "X Score", score: xScore)
+                        Spacer()
+                        VStack{
+                            if winner == .ex {
+                                Text("X is winner")
+                            }else if winner == .oh{
+                                Text("O is winner")
+                            }else if isDraw{
+                                Text("Draw")
+                            }
+                            Text(isItExTurn ? "X Turn":"O Turn")
+                                .font(.system(size: 50))
+                                .foregroundStyle(.blue)
                         }
-                        Text(isItExTurn ? "X Turn":"O Turn")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.blue)
-                    }
-                    Spacer()
+                        Spacer()
                         ScoreView(player: "O Score", score: oScore)
-                }
-                
-                Grid{
-                    GridRow{
-                        ForEach(0..<3){ index in
-                            ZStack{
-                                RectangleIView()
-                                if board.squares[index] == SquareState.empty {
-                                    Button(" ", action: {
-                                        if gameIsOver == false {
-                                            if isItExTurn == true {
-                                                // Assign "ex" to the square
-                                                board.squares[index] = SquareState.ex
-                                            } else {
-                                                // Assign "oh" to the square
-                                                board.squares[index] = SquareState.oh
-                                            }
-                                            checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                            isItExTurn.toggle()
-
-                                        }
-                                    })
-                                } else {
-                                    Button(board.squares[index] == .ex ? "X": "O", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                }
-                                
-                            }
-                        }
-                    }
-                    GridRow{
-                        ForEach(3..<6){ index in
-                            ZStack{
-                                RectangleIView()
-                                if board.squares[index] == SquareState.empty {
-                                    Button(" ", action: {
-                                        if gameIsOver == false{
-                                        if isItExTurn == true {
-                                            // Assign "ex" to the square
-                                            board.squares[index] = SquareState.ex
-                                            
-                                        } else {
-                                            // Assign "oh" to the square
-                                            board.squares[index] = SquareState.oh
-                                        }
-                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                        isItExTurn.toggle()
-                                    }
-                                    })
-                                    
-                                } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                }
-                                
-                            }
-                            
-                        }
-                    }
-                    GridRow{
-                        ForEach(6..<9){ index in
-                            ZStack{
-                                RectangleIView()
-                                if board.squares[index] == SquareState.empty {
-                                    Button(" ", action: {
-                                        if gameIsOver == false{
-                                        if isItExTurn == true {
-                                            // Assign "ex" to the square
-                                            board.squares[index] = SquareState.ex
-                                            
-                                        } else {
-                                            // Assign "oh" to the square
-                                            board.squares[index] = SquareState.oh
-                                        }
-                                        checkWin(forPlayer: isItExTurn ? .ex : .oh)
-                                        isItExTurn.toggle()
-                                    }
-                                    })
-                                
-                                } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 100))
-                                        .ignoresSafeArea()
-                                      
-                                }
-                                   
-                            }
-                        }
                     }
                     
+                    Grid{
+                        GridRow{
+                            ForEach(0..<3){ index in
+                                ZStack{
+                                    RectangleIView()
+                                    if board.squares[index] == SquareState.empty {
+                                        Button(" ", action: {
+                                            if gameIsOver == false {
+                                                if isItExTurn == true {
+                                                    // Assign "ex" to the square
+                                                    board.squares[index] = SquareState.ex
+                                                } else {
+                                                    // Assign "oh" to the square
+                                                    board.squares[index] = SquareState.oh
+                                                }
+                                                checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                                isItExTurn.toggle()
+                                                
+                                            }
+                                        })
+                                    } else {
+                                        Button(board.squares[index] == .ex ? "X": "O", action: {})
+                                            .foregroundStyle(.blue)
+                                            .font(.system(size: 100))
+                                            .ignoresSafeArea()
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        GridRow{
+                            ForEach(3..<6){ index in
+                                ZStack{
+                                    RectangleIView()
+                                    if board.squares[index] == SquareState.empty {
+                                        Button(" ", action: {
+                                            if gameIsOver == false{
+                                                if isItExTurn == true {
+                                                    // Assign "ex" to the square
+                                                    board.squares[index] = SquareState.ex
+                                                    
+                                                } else {
+                                                    // Assign "oh" to the square
+                                                    board.squares[index] = SquareState.oh
+                                                }
+                                                checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                                isItExTurn.toggle()
+                                            }
+                                        })
+                                        
+                                    } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
+                                            .foregroundStyle(.blue)
+                                            .font(.system(size: 100))
+                                            .ignoresSafeArea()
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                        GridRow{
+                            ForEach(6..<9){ index in
+                                ZStack{
+                                    RectangleIView()
+                                    if board.squares[index] == SquareState.empty {
+                                        Button(" ", action: {
+                                            if gameIsOver == false{
+                                                if isItExTurn == true {
+                                                    // Assign "ex" to the square
+                                                    board.squares[index] = SquareState.ex
+                                                    
+                                                } else {
+                                                    // Assign "oh" to the square
+                                                    board.squares[index] = SquareState.oh
+                                                }
+                                                checkWin(forPlayer: isItExTurn ? .ex : .oh)
+                                                isItExTurn.toggle()
+                                            }
+                                        })
+                                        
+                                    } else{ Button(board.squares[index] == .ex ? "X": "O", action: {})
+                                            .foregroundStyle(.blue)
+                                            .font(.system(size: 100))
+                                            .ignoresSafeArea()
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                    }
+                    Button(action: {restart()}, label: {
+                        Text("New Game")
+                            .font(.system(size: 25))
+                            .foregroundStyle(.white)
+                    })
+                    NavigationLink(destination: ContentView()) {
+                                               Text("Back to Menu")
+                                                   .font(.system(size: 25))
+                                                   .foregroundColor(.white)
+                                                   .padding()
+                                                   .background(Color.red)
+                                                   .cornerRadius(10)
+                                           }
                 }
-                Button(action: {restart()}, label: {
-                    Text("New Game")
-                        .font(.system(size: 25))
-                        .foregroundStyle(.white)
-                })
-                Text("\(gameCount)")
             }
         }
         

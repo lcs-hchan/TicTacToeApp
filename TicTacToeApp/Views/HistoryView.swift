@@ -10,22 +10,13 @@ import SwiftUI
 
 struct HistoryView: View {
     
-    
-    @State var gameHistory: [HistoryModel] = []
-    
-    
-    
+
     var body: some View {
-        ForEach(gameHistory) { currentHistory in
-            HStack{
-                Text("Game")
-                Text("\(currentHistory.gameNumber)")
-                Text(currentHistory.gameResult)
-            }
-        }
+        Text("Hi")
     }
+         
 }
 
 #Preview {
-    HistoryView()
+   
 }
