@@ -26,6 +26,15 @@ struct ContentView: View {
                             .font(.system(size: 50))
                         
                     }
+                    NavigationLink {
+                        HistoryView()
+                    } label: {
+                        Text("History")
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 50))
+                        
+                    }
+                    
 
                 }
             }

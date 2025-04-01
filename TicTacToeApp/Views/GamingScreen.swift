@@ -27,7 +27,10 @@ struct GamingScreen: View {
     
     @State var oScore = 0
     
+    @State var gameCount = 0
+    
     @State var isDraw = false
+    
     
     // MARK: Computed properties
     var gameIsOver: Bool {
@@ -152,10 +155,11 @@ struct GamingScreen: View {
                     
                 }
                 Button(action: {restart()}, label: {
-                    Text("Restart Game")
+                    Text("New Game")
                         .font(.system(size: 25))
                         .foregroundStyle(.white)
                 })
+                Text("\(gameCount)")
             }
         }
         
@@ -166,6 +170,7 @@ struct GamingScreen: View {
         isItExTurn = Bool.random()
         winner = nil
         isDraw = false
+        gameCount += 1
     }
         
     func checkWin(forPlayer player: SquareState){
