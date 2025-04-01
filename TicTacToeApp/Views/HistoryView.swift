@@ -8,14 +8,21 @@
 import SwiftUI
 
 
-
 struct HistoryView: View {
     
-   
+    
+    @State var gameHistory: [HistoryModel] = []
+    
     
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(gameHistory) { currentHistory in
+            HStack{
+                Text("Game")
+                Text("\(currentHistory.gameNumber)")
+                Text(currentHistory.gameResult)
+            }
+        }
     }
 }
 

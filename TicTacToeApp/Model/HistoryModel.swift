@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct gameHistory {
+struct HistoryModel: Identifiable {
     let id = UUID()
     let gameNumber: Int
     let gameResult: String
